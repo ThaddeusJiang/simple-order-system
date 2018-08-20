@@ -1,11 +1,11 @@
 {
-  "name": "parcel-antd-template",
-  "version": "0.2.0",
-  "description": "a react spa template by parcel and antd.",
+  "name": "simple-order-system",
+  "version": "0.0.1",
+  "description": "homework for Zenport",
   "scripts": {
     "start": "parcel public/index.html --open",
     "clean": "rm -rf .cache/ dist/ build/",
-    "build": "cross-env NODE_ENV=production parcel build public/index.html -d build --public-url /app/",
+    "build": "cross-env NODE_ENV=production parcel build public/index.html -d build --public-url /simple-order-system/",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:coverage": "jest --coverage",
@@ -14,9 +14,11 @@
     "lint:style": "stylelint \"src/**/*.less\" --syntax less",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js",
-    "precommit": "npm run test && npm run lint-staged"
+    "precommit": "npm run test && npm run lint-staged",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "repository": "https://github.com/ThaddeusJiang/parcel-antd-template.git",
+  "repository": "https://github.com/ThaddeusJiang/simple-order-system.git",
   "author": "Jifa Jiang <thaddeusjiang@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -40,6 +42,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
+    "gh-pages": "^1.2.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.1.4",
