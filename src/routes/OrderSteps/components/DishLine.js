@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Select, Form, Row, Col } from 'antd'
 
 const FormItem = Form.Item
@@ -71,6 +72,7 @@ export default class DishLine extends React.Component {
           value: num,
         },
       })
+      // FIXME: have a bug
       this.props.update({
         index: this.props.index,
         name: this.props.name,
@@ -116,7 +118,7 @@ export default class DishLine extends React.Component {
                 type="number"
                 min={1}
                 max={10}
-                value={number.value}
+                value={number.value || ''}
                 onChange={this.onChangeNum}
               />
             </FormItem>
@@ -126,4 +128,12 @@ export default class DishLine extends React.Component {
       </Form>
     )
   }
+}
+
+DishLine.proptTypes = {
+  index: PropTypes.number,
+  name: PropTypes.string,
+  chosen: PropTypes.array,
+  num: PropTypes.number,
+  update: PropTypes.func,
 }

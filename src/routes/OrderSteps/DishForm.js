@@ -31,9 +31,10 @@ class DishForm extends React.Component {
       chosen,
     })
   }
-  update = ({ index, name, num }) => {
+  update = ({ index, name, num, validateStatus }) => {
     const { chosen } = this.state
 
+    chosen[index].validateStatus = validateStatus
     chosen[index].name = name
     chosen[index].num = num
     // console.log(chosen)

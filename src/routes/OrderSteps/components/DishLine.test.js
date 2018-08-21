@@ -29,11 +29,10 @@ const data = [
 
 const chosen = [
   {
-    availableMeals: ['breakfast'],
     id: 5,
     name: 'Egg Muffin',
-    num: '6',
     restaurant: 'Mc Donalds',
+    availableMeals: ['breakfast'],
   },
 ]
 
@@ -65,7 +64,7 @@ describe('<DishLine>', () => {
   it('test change dish', () => {
     const updateFn = jest.fn()
 
-    let wrapper = shallow(
+    const wrapper = shallow(
       <DishLine index={0} dishes={data} chosen={chosen} update={updateFn} />,
     )
 
@@ -74,9 +73,10 @@ describe('<DishLine>', () => {
       .simulate('change', { target: { value: 'Chicken Burger' } })
     expect(updateFn.mock.calls.length).toBe(1)
 
-    wrapper = shallow(
-      <DishLine index={5} dishes={data} chosen={chosen} update={updateFn} />,
-    )
+    // FIXME:
+    // wrapper = shallow(
+    //   <DishLine index={5} dishes={data} chosen={data} update={updateFn} />,
+    // )
     // wrapper.find(Select).simulate('change', { target: { value: 'Egg Muffin' } })
     // expect(wrapper.state().name.validateStatus).toEqual('error')
   })
