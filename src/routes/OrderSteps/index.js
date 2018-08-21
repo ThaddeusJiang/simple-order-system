@@ -1,5 +1,5 @@
 import React from 'react'
-import { Steps } from 'antd'
+import { Steps, Layout } from 'antd'
 
 import MealForm from './MealForm'
 import RestaurantForm from './RestaurantForm'
@@ -8,6 +8,7 @@ import ReviewForm from './ReviewForm'
 
 import { getData, filterMeal, getRestaurant, getDishes } from './utils/helper'
 
+const { Content, Header } = Layout
 const { Step } = Steps
 
 const steps = [
@@ -136,14 +137,21 @@ export default class OrderSteps extends React.Component {
     }
 
     return (
-      <div>
-        <Steps current={current}>
-          {steps.map((item) => (
-            <Step key={item.title} title={item.title} />
-          ))}
-        </Steps>
-        <div>{form}</div>
-      </div>
+      <Layout style={{ height: '100vh' }}>
+        <Header>
+          <h1 style={{ color: 'white', textAlign: 'center' }}>
+            Simple Order System
+          </h1>
+        </Header>
+        <Content style={{ padding: '0 50px', marginTop: '50px' }}>
+          <Steps current={current}>
+            {steps.map((item) => (
+              <Step key={item.title} title={item.title} />
+            ))}
+          </Steps>
+          <div>{form}</div>
+        </Content>
+      </Layout>
     )
   }
 }

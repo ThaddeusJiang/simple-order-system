@@ -59,7 +59,7 @@ class RestaurantForm extends React.Component {
         <Button style={{ marginLeft: 8 }} onClick={this.props.prev}>
           Previous
         </Button>
-        <Button type="primary" onClick={this.next}>
+        <Button type="primary" onClick={this.next} style={{ float: 'right' }}>
           Next
         </Button>
       </Form>

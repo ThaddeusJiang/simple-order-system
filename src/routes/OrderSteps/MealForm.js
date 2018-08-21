@@ -89,6 +89,7 @@ class MealForm extends React.Component {
           type="primary"
           onClick={this.next}
           disabled={number.errorMsg != null}
+          style={{ float: 'right' }}
         >
           Next
         </Button>

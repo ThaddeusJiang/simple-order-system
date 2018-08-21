@@ -69,17 +69,31 @@ class DishForm extends React.Component {
         </Row>
         {chosenItems}
         {dishes.length !== chosen.length && (
-          <FormItem>
-            <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
-              <Icon type="plus" /> Add field
-            </Button>
-          </FormItem>
+          <Row gutter={16}>
+            <Col span={8} />
+            <Col span={8}>
+              <FormItem>
+                <Button
+                  type="dashed"
+                  onClick={this.add}
+                  style={{ width: '60%' }}
+                >
+                  <Icon type="plus" /> Add field
+                </Button>
+              </FormItem>
+            </Col>
+            <Col span={8} />
+          </Row>
         )}
         {!validateDish(peopleNum, chosen.map((item) => item.num)) && (
-          <p>
-            The total number of dishes should be greater or equal to the number
-            of person and a maximum of 10 is allowed.
-          </p>
+          <div style={{ textAlign: 'center', color: 'red' }}>
+            <span>
+              The total number of dishes should be greater or equal to the
+              number of person and a maximum of 10 is allowed.
+              <br />
+              So should be {peopleNum} ~ 10.
+            </span>
+          </div>
         )}
         <Button style={{ marginLeft: 8 }} onClick={this.props.prev}>
           Previous
@@ -89,6 +103,7 @@ class DishForm extends React.Component {
           type="primary"
           onClick={this.next}
           disabled={!validateDish(peopleNum, chosen.map((item) => item.num))}
+          style={{ float: 'right' }}
         >
           Next
         </Button>
