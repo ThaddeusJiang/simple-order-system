@@ -1,7 +1,8 @@
 language: node_js
 
 node_js:
-  - "8"
+  - 8
+  - 10
 
 sudo: false
 before_install:
@@ -12,8 +13,7 @@ cache:
   yarn: true
 
 scripts:
-  - yarn test
-  - yarn test:coverage
-
-after_success:
+  - yarn build
+  - yarn test:ci
   - yarn codecov
+
