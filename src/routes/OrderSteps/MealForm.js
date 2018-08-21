@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Form, Select, Button } from 'antd'
 
 import { validateNumber } from './utils/helper'
@@ -94,6 +95,16 @@ class MealForm extends React.Component {
       </Form>
     )
   }
+}
+
+MealForm.propTypes = {
+  meal: PropTypes.string.isRequired,
+  peopleNum: PropTypes.number.isRequired,
+  next: PropTypes.func,
+}
+
+MealForm.defaultProps = {
+  next: () => {},
 }
 
 export default MealForm

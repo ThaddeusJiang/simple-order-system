@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Form, Button, Icon, Row, Col } from 'antd'
 
 import DishLine from './components/DishLine'
@@ -48,6 +49,7 @@ class DishForm extends React.Component {
 
     const chosenItems = chosen.map((item, index) => (
       <DishLine
+        key={index.toString()}
         index={index}
         dishes={dishes}
         chosen={chosen}
@@ -93,6 +95,19 @@ class DishForm extends React.Component {
       </div>
     )
   }
+}
+
+DishForm.propTypes = {
+  peopleNum: PropTypes.number.isRequired,
+  dishes: PropTypes.array.isRequired,
+  chosen: PropTypes.array.isRequired,
+  next: PropTypes.func,
+  prev: PropTypes.func,
+}
+
+DishForm.defaultProps = {
+  next: () => {},
+  prev: () => {},
 }
 
 export default DishForm

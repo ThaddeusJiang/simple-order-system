@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import { Button } from 'antd'
 
 export default function ReviewForm({
@@ -35,4 +35,16 @@ export default function ReviewForm({
       </Button>
     </div>
   )
+}
+
+ReviewForm.propTypes = {
+  meal: PropTypes.string.isRequired,
+  peopleNum: PropTypes.number.isRequired,
+  restaurant: PropTypes.string.isRequired,
+  dishes: PropTypes.array.isRequired,
+  prev: PropTypes.func,
+}
+
+ReviewForm.defaultProps = {
+  prev: () => {},
 }

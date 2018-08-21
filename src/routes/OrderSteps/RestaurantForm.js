@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Form, Select, Button } from 'antd'
 
 const FormItem = Form.Item
@@ -64,6 +65,18 @@ class RestaurantForm extends React.Component {
       </Form>
     )
   }
+}
+
+RestaurantForm.propTypes = {
+  restaurant: PropTypes.string.isRequired,
+  restaurants: PropTypes.array.isRequired,
+  next: PropTypes.func,
+  prev: PropTypes.func,
+}
+
+RestaurantForm.defaultProps = {
+  next: () => {},
+  prev: () => {},
 }
 
 export default RestaurantForm
